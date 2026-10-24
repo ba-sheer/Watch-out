@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://otvbmi1tjgkf"]
+
+[ext_resource type="Texture2D" uid="uid://bmkkprd8mf45t" path="res://assets/sprites/roomba.png" id="1_ngohf"]
+[ext_resource type="Script" uid="uid://diuiljnw1v1t2" path="res://actors/chaser/chaser.gd" id="1_r33fq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 53.600372
+
+[node name="Chaser" type="Node2D" unique_id=521797126]
+script = ExtResource("1_r33fq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1457179656]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_ngohf")
+hframes = 2
+
+[node name="Hit" type="Area2D" parent="." unique_id=2049277466]
+collision_layer = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit" unique_id=502319964]
+shape = SubResource("CircleShape2D_g4v7s")
