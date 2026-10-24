@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://ge6lkx1qy82e" path="res://levels/world/world.gd" id="1_6dsb1"]
 [ext_resource type="Texture2D" uid="uid://bkcgt0v3thccv" path="res://assets/sprites/floor.png" id="2_55vp4"]
 [ext_resource type="PackedScene" uid="uid://l1o2vtf3j0le" path="res://actors/player/player.tscn" id="3_player"]
+[ext_resource type="Script" uid="uid://qq6noj4l2lj6" path="res://levels/world/decor.gd" id="4_rsi0u"]
+[ext_resource type="Script" uid="uid://dg7uegubjpwdl" path="res://levels/world/camera_shake.gd" id="4_vldmy"]
+[ext_resource type="Script" uid="uid://b3pnn8tdeh2dx" path="res://levels/world/director.gd" id="6_0nj7f"]
 
 [node name="World" type="Node2D" unique_id=306884032]
 script = ExtResource("1_6dsb1")
@@ -16,4 +19,20 @@ texture = ExtResource("2_55vp4")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="player" parent="." unique_id=1778426767 instance=ExtResource("3_player")]
+[node name="Player" parent="." unique_id=1778426767 instance=ExtResource("3_player")]
+
+[node name="Rug" type="Sprite2D" parent="." unique_id=141792002]
+
+[node name="Decor" type="Node2D" parent="." unique_id=1740794559]
+script = ExtResource("4_rsi0u")
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1535479015]
+
+[node name="Frame" type="Sprite2D" parent="." unique_id=1636894360]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=916072673]
+position = Vector2(640, 360)
+script = ExtResource("4_vldmy")
+
+[node name="Director" type="Node" parent="." unique_id=103082447]
+script = ExtResource("6_0nj7f")
