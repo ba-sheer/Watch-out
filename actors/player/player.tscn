@@ -10,6 +10,13 @@ radius = 12.0
 
 [node name="player" type="CharacterBody2D" unique_id=1853750527]
 script = ExtResource("1_nvxhs")
+speed = null
+acceleration = null
+friction = null
+dash_speed = null
+dash_duration = null
+dash_cooldown = null
+bounds = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907767709]
 texture_filter = 1
