@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cylrcowjrotot" path="res://actors/player/player.gd" id="1_nvxhs"]
 [ext_resource type="Texture2D" uid="uid://cliijeovpn00k" path="res://assets/sprites/player.png" id="2_ilk7j"]
-[ext_resource type="Texture2D" uid="uid://bt630pfpxtk01" path="res://assets/sprites/shadow.png" id="3_ax26v"]
+[ext_resource type="Texture2D" uid="uid://o72l0r8hyix2" path="res://assets/sprites/shadow_small.png" id="3_lsqbn"]
 [ext_resource type="Texture2D" uid="uid://0r01n4ly4ijc" path="res://assets/sprites/fx/puff.png" id="4_lsqbn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilk7j"]
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_ilk7j")
 texture_filter = 1
 position = Vector2(0, 19)
 scale = Vector2(3, 3)
-texture = ExtResource("3_ax26v")
+texture = ExtResource("3_lsqbn")
 
 [node name="Dust" type="CPUParticles2D" parent="." unique_id=841314619]
 position = Vector2(0, 21)
