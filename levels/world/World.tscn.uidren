@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://crydnmubbng0l"]
+
+[ext_resource type="Script" uid="uid://cnqkx4rnbmi86" path="res://levels/world/world.gd" id="1_6dsb1"]
+[ext_resource type="Texture2D" uid="uid://bkcgt0v3thccv" path="res://assets/sprites/floor.png" id="2_55vp4"]
+[ext_resource type="PackedScene" uid="uid://l1o2vtf3j0le" path="res://actors/player/player.tscn" id="3_player"]
+
+[node name="World" type="Node2D" unique_id=306884032]
+script = ExtResource("1_6dsb1")
+
+[node name="Floor" type="TextureRect" parent="." unique_id=1098985559]
+z_index = -10
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+texture = ExtResource("2_55vp4")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="player" parent="." unique_id=288139072 instance=ExtResource("3_player")]
