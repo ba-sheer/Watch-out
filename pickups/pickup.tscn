@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://db2pgehee2edd"]
+
+[ext_resource type="Script" uid="uid://cn6sh3kknwcui" path="res://pickup.gd" id="1_0ketk"]
+[ext_resource type="Texture2D" uid="uid://btpv4clww3bto" path="res://assets/sprites/pickups_kitchen.png" id="2_i5kuo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 15.0
+
+[node name="Pickup" type="Area2D" unique_id=1098363411]
+collision_layer = 4
+monitorable = false
+script = ExtResource("1_0ketk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=249648935]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_i5kuo")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2017858166]
+shape = SubResource("CircleShape2D_yf5fn")
