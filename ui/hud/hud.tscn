@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://ddbqiuh6vqrkr"]
+
+[ext_resource type="Script" uid="uid://ff7kq71728r8" path="res://ui/hud/hud.gd" id="1_xmswo"]
+
+[node name="HUD" type="CanvasLayer" unique_id=471226331]
+script = ExtResource("1_xmswo")
+
+[node name="HurtFlash" type="TextureRect" parent="." unique_id=1917460362]
+unique_name_in_owner = true
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Root" type="MarginContainer" parent="." unique_id=874865488]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Layout" type="VBoxContainer" parent="Root" unique_id=1059445345]
+layout_mode = 2
+
+[node name="Hearts" type="HBoxContainer" parent="Root/Layout" unique_id=948518385]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="Root/Layout/Hearts" unique_id=167586862]
+layout_mode = 2
+
+[node name="Stats" type="VBoxContainer" parent="Root/Layout/Hearts" unique_id=528176619]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1772493322]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1176978744]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ComboLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1873248656]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Spacer2" type="Control" parent="Root/Layout/Hearts/Stats" unique_id=1431656632]
+layout_mode = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="Root/Layout/Hearts" unique_id=239177098]
+layout_mode = 2
+
+[node name="DashBox" type="VBoxContainer" parent="Root/Layout/Hearts/BottomBar" unique_id=835869974]
+layout_mode = 2
+
+[node name="DashLabel" type="Label" parent="Root/Layout/Hearts/BottomBar/DashBox" unique_id=643600554]
+layout_mode = 2
+
+[node name="DashBar" type="TextureProgressBar" parent="Root/Layout/Hearts/BottomBar/DashBox" unique_id=647298751]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Banner" type="Label" parent="." unique_id=1296027773]
+unique_name_in_owner = true
+offset_left = 9.0
+offset_top = 27.0
+offset_right = 49.0
+offset_bottom = 50.0

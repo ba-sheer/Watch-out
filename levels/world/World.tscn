@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dg7uegubjpwdl" path="res://levels/world/camera_shake.gd" id="4_vldmy"]
 [ext_resource type="Script" uid="uid://b3pnn8tdeh2dx" path="res://levels/world/director.gd" id="6_0nj7f"]
 [ext_resource type="Texture2D" uid="uid://bpkrtjjfmerey" path="res://assets/sprites/frame.png" id="6_hjhv5"]
+[ext_resource type="PackedScene" uid="uid://ddbqiuh6vqrkr" path="res://ui/hud/hud.tscn" id="9_whd5u"]
 
 [node name="World" type="Node2D" unique_id=306884032]
 script = ExtResource("1_6dsb1")
@@ -15,15 +16,15 @@ script = ExtResource("1_6dsb1")
 [node name="Floor" type="TextureRect" parent="." unique_id=982963233]
 z_index = -10
 texture_filter = 1
-offset_right = 1280.0
-offset_bottom = 720.0
+offset_right = 426.6667
+offset_bottom = 240.0
 scale = Vector2(3, 3)
 mouse_filter = 2
 texture = ExtResource("2_55vp4")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Player" parent="." unique_id=1778426767 instance=ExtResource("3_player")]
+[node name="Player" parent="." unique_id=1778426767 groups=["player"] instance=ExtResource("3_player")]
 
 [node name="Rug" type="Sprite2D" parent="." unique_id=141792002]
 z_index = -9
@@ -37,11 +38,17 @@ script = ExtResource("4_rsi0u")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1535479015]
 
-[node name="Frame" type="Sprite2D" parent="." unique_id=1636894360]
+[node name="Frame" type="Sprite2D" parent="." unique_id=1636894360 groups=["player"]]
 texture_filter = 1
-scale = Vector2(3, 3)
+scale = Vector2(2.9976583, 3)
 texture = ExtResource("6_hjhv5")
 centered = false
+
+[node name="Hazards" type="Node2D" parent="." unique_id=235815409]
+scale = Vector2(2.9976583, 3)
+
+[node name="Effects" type="Node2D" parent="." unique_id=1198192257 groups=["player"]]
+scale = Vector2(2.9976583, 3)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=916072673]
 position = Vector2(640, 360)
@@ -49,3 +56,5 @@ script = ExtResource("4_vldmy")
 
 [node name="Director" type="Node" parent="." unique_id=103082447]
 script = ExtResource("6_0nj7f")
+
+[node name="HUD" parent="." unique_id=471226331 instance=ExtResource("9_whd5u")]
