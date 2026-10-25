@@ -27,7 +27,7 @@ func _ready() -> void:
 	var secs := int(Game.run_time)
 	var items: Dictionary = w["pickups"]
 	_add_stat("WORLD", w["name"])
-	_add_stat("SURVIVED", "%d:%02d" % [secs / 60, secs % 60])
+	_add_stat("SURVIVED", "%d:%02d" % [int(secs / 60), secs % 60])
 	_add_stat(items["stat"], str(Game.crumbs_eaten))
 	_add_stat("CLOSE CALLS", str(Game.near_misses))
 	_add_stat("BEST COMBO", str(Game.best_combo))

@@ -10,7 +10,7 @@ const PICKUP_SCENE := preload("res://pickups/pickup.tscn")
 
 const EVENTS := [
 	{"t": 18.0, "text": "A CAT HAS NOTICED YOU"},
-	{"t": 36.0, "text": "SOMEONE LEFT THE ROLLING PIN OUT"},
+	{"t": 36.0, "text": "{roller}"},
 	{"t": 60.0, "text": "{chaser} O'CLOCK"},
 	{"t": 90.0, "text": "THE {foot} BRIGADE ARRIVES"},
 	{"t": 130.0, "text": "YOU ARE STILL A LITTLE GUY"},
@@ -34,11 +34,11 @@ var _next_event := 0
 var _intro := ""
 var _chaser_name := "ROOMBA"
 var _foot_name := "BOOT"
+var _roller_line := "SOMEONE LEFT THE ROLLING PIN OUT"
 var _intro_shown := false
 var _chaser: Node2D
 
 
-## Called by the world once the scene is up. Pulls this world's rules into the director.
 func setup(w: Dictionary) -> void:
 	boot_scale = w["boot_scale"]
 	offset = w["offset"]
@@ -47,6 +47,7 @@ func setup(w: Dictionary) -> void:
 	_chaser_name = chaser["name"]
 	var footwear: Dictionary = w["footwear"]
 	_foot_name = footwear["name"]
+	_roller_line = w["roller"]["line"]
 	var items: Dictionary = w["pickups"]
 	pickup_interval = items["interval"]
 	pickup_max = items["max"]
@@ -65,7 +66,7 @@ func _process(delta: float) -> void:
 		Game.banner(_intro)
 	while _next_event < EVENTS.size() and t >= EVENTS[_next_event]["t"]:
 		var line: String = EVENTS[_next_event]["text"]
-		Game.banner(line.replace("{chaser}", _chaser_name).replace("{foot}", _foot_name))
+		Game.banner(line.replace("{chaser}", _chaser_name).replace("{foot}", _foot_name).replace("{roller}", _roller_line))
 		_next_event += 1
 
 	_boot_cd -= delta

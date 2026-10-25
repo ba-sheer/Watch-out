@@ -1,16 +1,45 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene format=3 uid="uid://c0sh8rt1w57m1"]
 
-[ext_resource type="Script" path="res://ui/title/title.gd" id="1_title"]
-[ext_resource type="Texture2D" path="res://assets/sprites/floor.png" id="2_floor"]
-[ext_resource type="Texture2D" path="res://assets/sprites/shadow.png" id="3_shadow"]
-[ext_resource type="Texture2D" path="res://assets/sprites/boot.png" id="4_boot"]
-[ext_resource type="Texture2D" path="res://assets/sprites/player.png" id="5_player"]
-[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="6_theme"]
+[ext_resource type="Script" uid="uid://tkko6vyh6uv5" path="res://ui/title/title.gd" id="1_title"]
+[ext_resource type="Texture2D" uid="uid://bkcgt0v3thccv" path="res://assets/sprites/floor.png" id="2_floor"]
+[ext_resource type="Texture2D" uid="uid://bt630pfpxtk01" path="res://assets/sprites/shadow.png" id="3_shadow"]
+[ext_resource type="Texture2D" uid="uid://c84iel783en50" path="res://assets/sprites/boot.png" id="4_boot"]
+[ext_resource type="Texture2D" uid="uid://cliijeovpn00k" path="res://assets/sprites/player.png" id="5_player"]
+[ext_resource type="Theme" uid="uid://cyj1kcc483nrs" path="res://assets/themes/main_theme.tres" id="6_theme"]
+[ext_resource type="Texture2D" uid="uid://b0a7ue2nliy6l" path="res://assets/sprites/ui/kenney/key_a.png" id="k_a"]
+[ext_resource type="Texture2D" uid="uid://4suqvlcyusvw" path="res://assets/sprites/ui/kenney/key_arrows.png" id="k_arrows"]
+[ext_resource type="Texture2D" uid="uid://qsu2c8a216yf" path="res://assets/sprites/ui/kenney/key_arrows_h.png" id="k_arrowsh"]
+[ext_resource type="Texture2D" uid="uid://dr4xhuryi5bn1" path="res://assets/sprites/ui/button_normal.png" id="k_btn"]
+[ext_resource type="Texture2D" uid="uid://dxmvpuo3dgqnn" path="res://assets/sprites/ui/kenney/pad_a.png" id="k_btna"]
+[ext_resource type="Texture2D" uid="uid://g40uselawgw7" path="res://assets/sprites/ui/kenney/pad_b.png" id="k_btnb"]
+[ext_resource type="Texture2D" uid="uid://dl20d74omdapj" path="res://assets/sprites/ui/kenney/pad_y.png" id="k_btny"]
+[ext_resource type="Texture2D" uid="uid://dh8n7jhlb2a61" path="res://assets/sprites/ui/kenney/key_d.png" id="k_d"]
+[ext_resource type="Texture2D" uid="uid://crxwtia8k2ss" path="res://assets/sprites/ui/kenney/pad_dpad_h.png" id="k_dpadh"]
+[ext_resource type="Texture2D" uid="uid://d2lugldfohdfs" path="res://assets/sprites/ui/kenney/key_enter.png" id="k_enter"]
+[ext_resource type="Texture2D" uid="uid://dor5diakgy80o" path="res://assets/sprites/ui/kenney/key_esc.png" id="k_esc"]
+[ext_resource type="Texture2D" uid="uid://ctqeoaruxbn1p" path="res://assets/sprites/ui/kenney/key_f11.png" id="k_f11"]
+[ext_resource type="Texture2D" uid="uid://balqp8sseshi7" path="res://assets/sprites/ui/kenney/key_i.png" id="k_i"]
+[ext_resource type="Texture2D" uid="uid://brtarcras170h" path="res://assets/sprites/ui/kenney/info.png" id="k_info"]
+[ext_resource type="Texture2D" uid="uid://bnomballmbg3d" path="res://assets/sprites/ui/kenney/key_m.png" id="k_m"]
+[ext_resource type="Texture2D" uid="uid://c7oy4ktabrgle" path="res://assets/sprites/ui/kenney/key_p.png" id="k_p"]
+[ext_resource type="Texture2D" uid="uid://ct87atnymilcc" path="res://assets/sprites/ui/kenney/key_s.png" id="k_s"]
+[ext_resource type="Texture2D" uid="uid://bxyyw7vp085ds" path="res://assets/sprites/ui/kenney/key_shift.png" id="k_shift"]
+[ext_resource type="Texture2D" uid="uid://cy7w4f0xer01k" path="res://assets/sprites/ui/kenney/key_space.png" id="k_space"]
+[ext_resource type="Texture2D" uid="uid://cyrbhlgtcffha" path="res://assets/sprites/ui/kenney/pad_start.png" id="k_start"]
+[ext_resource type="Texture2D" uid="uid://c7obujm8lnp86" path="res://assets/sprites/ui/kenney/pad_stick_l.png" id="k_stick"]
+[ext_resource type="Texture2D" uid="uid://dp1c6ekkkruei" path="res://assets/sprites/ui/kenney/key_w.png" id="k_w"]
 
-[node name="Title" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_panel"]
+texture = ExtResource("k_btn")
+texture_margin_left = 12.0
+texture_margin_top = 12.0
+texture_margin_right = 12.0
+texture_margin_bottom = 15.0
+
+[node name="Title" type="Node2D" unique_id=1999612152]
 script = ExtResource("1_title")
 
-[node name="Floor" type="TextureRect" parent="."]
+[node name="Floor" type="TextureRect" parent="." unique_id=598512774]
 modulate = Color(0.55, 0.5, 0.6, 1)
 offset_right = 428.0
 offset_bottom = 240.0
@@ -20,25 +49,25 @@ texture = ExtResource("2_floor")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Warning" type="Sprite2D" parent="."]
-position = Vector2(980, 575)
-scale = Vector2(7, 7)
+[node name="Warning" type="Sprite2D" parent="." unique_id=235977070]
+position = Vector2(1043, 535)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("3_shadow")
 
-[node name="LittleGuy" type="Sprite2D" parent="."]
-position = Vector2(980, 560)
-scale = Vector2(7, 7)
+[node name="LittleGuy" type="Sprite2D" parent="." unique_id=380387942]
+position = Vector2(1043, 520)
+scale = Vector2(6.5, 6.5)
 texture = ExtResource("5_player")
 hframes = 8
 
-[node name="BigBoot" type="Sprite2D" parent="."]
-position = Vector2(980, 215)
-scale = Vector2(6, 6)
+[node name="BigBoot" type="Sprite2D" parent="." unique_id=1131001392]
+position = Vector2(1100, 194)
+scale = Vector2(5, 5)
 texture = ExtResource("4_boot")
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=114829832]
 
-[node name="Margin" type="MarginContainer" parent="UI"]
+[node name="Margin" type="MarginContainer" parent="UI" unique_id=836142449]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -49,38 +78,38 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 90
 theme_override_constants/margin_bottom = 60
 
-[node name="Menu" type="VBoxContainer" parent="UI/Margin"]
+[node name="Menu" type="VBoxContainer" parent="UI/Margin" unique_id=618374488]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 14
 
-[node name="TitleLabel" type="Label" parent="UI/Margin/Menu"]
+[node name="TitleLabel" type="Label" parent="UI/Margin/Menu" unique_id=331207639]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 68
-text = "I'M JUST A
-LITTLE GUY!!!!"
+text = "Watch out!!"
 
-[node name="SubLabel" type="Label" parent="UI/Margin/Menu"]
+[node name="SubLabel" type="Label" parent="UI/Margin/Menu" unique_id=17821331]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 20
 text = "a very small adventure in a very large house"
 
-[node name="Gap" type="Control" parent="UI/Margin/Menu"]
+[node name="Gap" type="Control" parent="UI/Margin/Menu" unique_id=889117394]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="WorldRow" type="HBoxContainer" parent="UI/Margin/Menu"]
+[node name="WorldRow" type="HBoxContainer" parent="UI/Margin/Menu" unique_id=262399057]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="PrevButton" type="Button" parent="UI/Margin/Menu/WorldRow"]
+[node name="PrevButton" type="Button" parent="UI/Margin/Menu/WorldRow" unique_id=624182140]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../../InfoButton")
 text = "<"
 
-[node name="WorldLabel" type="Label" parent="UI/Margin/Menu/WorldRow"]
+[node name="WorldLabel" type="Label" parent="UI/Margin/Menu/WorldRow" unique_id=1507858568]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
@@ -90,41 +119,531 @@ text = "KITCHEN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NextButton" type="Button" parent="UI/Margin/Menu/WorldRow"]
+[node name="NextButton" type="Button" parent="UI/Margin/Menu/WorldRow" unique_id=207466106]
 unique_name_in_owner = true
 layout_mode = 2
+focus_neighbor_top = NodePath("../../../../InfoButton")
 text = ">"
 
-[node name="TaglineLabel" type="Label" parent="UI/Margin/Menu"]
+[node name="TaglineLabel" type="Label" parent="UI/Margin/Menu" unique_id=123268898]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 18
 text = "tagline"
 
-[node name="PlayButton" type="Button" parent="UI/Margin/Menu"]
+[node name="DifficultyRow" type="HBoxContainer" parent="UI/Margin/Menu" unique_id=1863279763]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DiffTitle" type="Label" parent="UI/Margin/Menu/DifficultyRow" unique_id=1297535145]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 18
+text = "DIFFICULTY"
+
+[node name="Pip1" type="ColorRect" parent="UI/Margin/Menu/DifficultyRow" unique_id=1958982136]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 12)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.16)
+
+[node name="Pip2" type="ColorRect" parent="UI/Margin/Menu/DifficultyRow" unique_id=683378798]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 12)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.16)
+
+[node name="Pip3" type="ColorRect" parent="UI/Margin/Menu/DifficultyRow" unique_id=483311200]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 12)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.16)
+
+[node name="Pip4" type="ColorRect" parent="UI/Margin/Menu/DifficultyRow" unique_id=146659529]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(26, 12)
+layout_mode = 2
+size_flags_vertical = 4
+color = Color(1, 1, 1, 0.16)
+
+[node name="DiffName" type="Label" parent="UI/Margin/Menu/DifficultyRow" unique_id=782791663]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "EASY"
+
+[node name="PlayButton" type="Button" parent="UI/Margin/Menu" unique_id=1322035435]
 unique_name_in_owner = true
 layout_mode = 2
 text = "PLAY"
 
-[node name="QuitButton" type="Button" parent="UI/Margin/Menu"]
+[node name="QuitButton" type="Button" parent="UI/Margin/Menu" unique_id=1689780592]
 unique_name_in_owner = true
 layout_mode = 2
 text = "QUIT"
 
-[node name="Gap2" type="Control" parent="UI/Margin/Menu"]
+[node name="Gap2" type="Control" parent="UI/Margin/Menu" unique_id=762679520]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="BestLabel" type="Label" parent="UI/Margin/Menu"]
+[node name="BestLabel" type="Label" parent="UI/Margin/Menu" unique_id=1791747458]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
 theme_override_font_sizes/font_size = 22
 text = "BEST 0"
 
-[node name="HintLabel" type="Label" parent="UI/Margin/Menu"]
+[node name="HintLabel" type="Label" parent="UI/Margin/Menu" unique_id=645627011]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 16
-text = "WASD / ARROWS / STICK to move    SPACE to dash    ESC pause    M mute    F11 fullscreen"
+text = "WASD / ARROWS / STICK to move    SPACE / A to dash    ESC pause    I / Y info    M mute    F11 fullscreen"
+
+[node name="InfoButton" type="Button" parent="UI" unique_id=1504695597]
+unique_name_in_owner = true
+texture_filter = 2
+custom_minimum_size = Vector2(80, 80)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = 104.0
+grow_horizontal = 0
+focus_neighbor_left = NodePath("../Margin/Menu/WorldRow/NextButton")
+focus_neighbor_bottom = NodePath("../Margin/Menu/PlayButton")
+theme = ExtResource("6_theme")
+
+[node name="Icon" type="TextureRect" parent="UI/InfoButton" unique_id=1899458037]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -38.0
+offset_right = 16.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("k_info")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoOverlay" type="Control" parent="UI" unique_id=706729793]
+unique_name_in_owner = true
+visible = false
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_theme")
+
+[node name="Dim" type="ColorRect" parent="UI/InfoOverlay" unique_id=1843708639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.7)
+
+[node name="Center" type="CenterContainer" parent="UI/InfoOverlay" unique_id=1358609071]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="UI/InfoOverlay/Center" unique_id=1968632282]
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_panel")
+
+[node name="Margin" type="MarginContainer" parent="UI/InfoOverlay/Center/Panel" unique_id=34434816]
+layout_mode = 2
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 26
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 26
+
+[node name="Box" type="VBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin" unique_id=1381998719]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="InfoTitle" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1980876465]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.62, 0.89, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Watch out!!"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1703116375]
+custom_minimum_size = Vector2(980, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 19
+text = "Your a very small being in very big house and your task is to dodge the attacks"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Line" type="HSeparator" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1055975554]
+layout_mode = 2
+
+[node name="ControlsTitle" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=748816723]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 26
+text = "CONTROLS"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1173487587]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 28
+theme_override_constants/v_separation = 8
+columns = 4
+
+[node name="Action0" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=15538814]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "MOVE"
+
+[node name="Keys0" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=549032440]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_w" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=1651238919]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I2_a" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=1526301559]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I3_s" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=426325546]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I4_d" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=1538547706]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl1" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=1099939963]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I5_arrows" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=1888483506]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("k_arrows")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl2" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=486542904]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I6_stick" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys0" unique_id=116847816]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_stick")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action1" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=415209210]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "DASH"
+
+[node name="Keys1" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=146968539]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_space" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys1" unique_id=2039093895]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_space")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I2_shift" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys1" unique_id=2049171389]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_shift")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl1" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys1" unique_id=13643773]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I3_btna" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys1" unique_id=767033894]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_btna")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action2" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1454905927]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+
+[node name="Keys2" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=189888942]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_esc" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys2" unique_id=1810075179]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_esc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I2_p" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys2" unique_id=644129060]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl1" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys2" unique_id=1230696938]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I3_start" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys2" unique_id=243913612]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_start")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action3" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1796238150]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "PICK WORLD"
+
+[node name="Keys3" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1776479108]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_a" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=291910609]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="I2_d" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=2054290600]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl1" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=368750410]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I3_arrowsh" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=1026700576]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_arrowsh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl2" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=215922788]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I4_dpadh" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys3" unique_id=113528976]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_dpadh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action4" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1531761995]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "MUTE"
+
+[node name="Keys4" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=934011031]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_m" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys4" unique_id=910005818]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action5" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1325683333]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "FULLSCREEN"
+
+[node name="Keys5" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=644784662]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_f11" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys5" unique_id=1938323779]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_f11")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action6" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=789272599]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "SELECT"
+
+[node name="Keys6" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1116855047]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_enter" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys6" unique_id=1414098450]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_enter")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys6" unique_id=1659416510]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I2_btna" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys6" unique_id=756639087]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_btna")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action7" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=284411305]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "BACK"
+
+[node name="Keys7" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1094578011]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_esc" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys7" unique_id=298316509]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_esc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys7" unique_id=1275280001]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I2_btnb" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys7" unique_id=1969576360]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_btnb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Action8" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=1434420822]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 20
+text = "INFO"
+
+[node name="Keys8" type="HBoxContainer" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid" unique_id=590614648]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="I1_i" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys8" unique_id=90924306]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Sl" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys8" unique_id=1837505675]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "/"
+
+[node name="I2_btny" type="TextureRect" parent="UI/InfoOverlay/Center/Panel/Margin/Box/Grid/Keys8" unique_id=1407313772]
+custom_minimum_size = Vector2(44, 44)
+layout_mode = 2
+texture = ExtResource("k_btny")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Tip" type="Label" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1672592897]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 17
+text = "Dash gives a brief moment of invulnerability. Get close to danger without being hit to build your combo."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseButton" type="Button" parent="UI/InfoOverlay/Center/Panel/Margin/Box" unique_id=1811832958]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+text = "GOT IT"

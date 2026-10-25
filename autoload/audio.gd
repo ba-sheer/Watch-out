@@ -32,7 +32,7 @@ func _ready() -> void:
 		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 		wav.loop_begin = 0
 		var bytes_per_frame := (2 if wav.format == AudioStreamWAV.FORMAT_16_BITS else 1) * (2 if wav.stereo else 1)
-		wav.loop_end = wav.data.size() / bytes_per_frame
+		wav.loop_end = wav.data.size() / float(bytes_per_frame)
 	else:
 		_music.finished.connect(_music.play)
 	add_child(_music)

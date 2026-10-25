@@ -19,6 +19,7 @@ var _t := 0.0
 
 
 func _ready() -> void:
+	sprite.texture = load(Game.worlds[Game.world_index]["roller"]["sheet"])
 	pin.position.y = START_Y
 	lane.modulate.a = 0.0
 	Audio.play("warn", 0.6, -6.0)

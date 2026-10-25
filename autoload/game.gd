@@ -1,10 +1,12 @@
 extends Node
 
+
 signal score_changed(score: int)
 signal lives_changed(lives: int)
 signal combo_changed(combo: int, multiplier: int)
 signal run_started
 signal run_ended
+@warning_ignore("unused_signal")
 signal screen_shake(amount: float)
 signal popup_requested(text: String, pos: Vector2, color: Color)
 signal burst_requested(pos: Vector2, color: Color, amount: int)
@@ -22,6 +24,11 @@ const RANKS := [
 	[3000, "SUSPICIOUSLY SPEEDY"],
 	[6000, "TINY LEGEND"],
 ]
+
+## Difficulty shown on the title screen is WORKED OUT from each world's own numbers (see rate_difficulty),
+## so it can never drift out of date. Score below each cutoff = level 1, 2, 3; anything above = level 4.
+const DIFFICULTY_NAMES := ["EASY", "MEDIUM", "HARD", "EXTREME"]
+const DIFFICULTY_CUTOFFS := [0.5, 2.0, 3.5]
 
 var score := 0
 var lives := MAX_LIVES
@@ -42,6 +49,7 @@ var worlds := [
 		"intro": "THE FLOOR IS SUSPICIOUSLY CLEAN",
 		"frame": "res://assets/sprites/frame_kitchen.png",
 		"footwear": {"name": "SLIPPER", "sheet": "res://assets/sprites/slipper.png", "sound": "fwump", "shake": 0.35, "dust": Pal.ROSE},
+		"roller": {"sheet": "res://assets/sprites/rolling_pin.png", "line": "SOMEONE LEFT THE ROLLING PIN OUT"},
 		"chaser": {
 			"name": "ROOMBA", "sheet": "res://assets/sprites/roomba.png", "color": Pal.ROSE,
 			"speed": 105.0, "turn": 200.0, "lifetime": 15.0, "radius": 54.0,
@@ -64,6 +72,7 @@ var worlds := [
 		"intro": "THE FLOOR IS SUSPICIOUSLY WET",
 		"frame": "res://assets/sprites/frame.png",
 		"footwear": {"name": "SANDAL", "sheet": "res://assets/sprites/flipflop.png", "sound": "slap", "shake": 0.4, "dust": Pal.SKY},
+		"roller": {"sheet": "res://assets/sprites/toilet_paper.png", "line": "THE TOILET PAPER HAS ESCAPED"},
 		"chaser": {
 			"name": "ROOMBA", "sheet": "res://assets/sprites/roomba.png", "color": Pal.ROSE,
 			"speed": 105.0, "turn": 200.0, "lifetime": 15.0, "radius": 54.0,
@@ -86,6 +95,7 @@ var worlds := [
 		"intro": "THE GRASS IS SUSPICIOUSLY TALL",
 		"frame": "res://assets/sprites/frame.png",
 		"footwear": {"name": "BOOT", "sheet": "res://assets/sprites/boot.png", "sound": "stomp", "shake": 0.55, "dust": Pal.PEACH},
+		"roller": {"sheet": "res://assets/sprites/log.png", "line": "A LOG HAS COME LOOSE"},
 		"chaser": {
 			"name": "MOWER", "sheet": "res://assets/sprites/mower.png", "color": Pal.PEACH,
 			"speed": 125.0, "turn": 150.0, "lifetime": 14.0, "radius": 52.0,
@@ -108,6 +118,7 @@ var worlds := [
 		"intro": "WHO LEFT THE GARAGE DOOR OPEN?",
 		"frame": "res://assets/sprites/frame.png",
 		"footwear": {"name": "BOOT", "sheet": "res://assets/sprites/boot.png", "sound": "stomp", "shake": 0.55, "dust": Pal.PEACH},
+		"roller": {"sheet": "res://assets/sprites/pipe.png", "line": "A PIPE IS ROLLING AWAY"},
 		"chaser": {
 			"name": "HENRY", "sheet": "res://assets/sprites/henry.png", "color": Pal.ORCHID,
 			"speed": 115.0, "turn": 240.0, "lifetime": 16.0, "radius": 44.0,
@@ -136,6 +147,8 @@ var _fade: TextureRect
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	for w in worlds:
+		w["difficulty"] = rate_difficulty(w)
 	_load_save()
 	var layer := FADE_SCENE.instantiate()
 	add_child(layer)
@@ -261,6 +274,28 @@ func rank_for(value: int) -> String:
 		if value >= r[0]:
 			result = r[1]
 	return result
+
+
+## How hard a world is, as one number, from the same settings the Director and Player already use:
+##   head start  : "offset" seconds of difficulty time, one point per 15 s (paws unlock at 18 s, pins 36 s, hunter 60 s)
+##   foot rate   : "boot_scale" below 1.0 means feet land more often (+5 points per 100% more feet, less if slower)
+##   slippery    : friction under 1000 means you slide, which is +1 point
+## Kitchen 0.0, Bathroom 1.2, Backyard 2.6, Garage 4.3 with the current numbers.
+func difficulty_score(w: Dictionary) -> float:
+	var head_start: float = float(w["offset"]) / 15.0
+	var foot_rate: float = (1.0 / float(w["boot_scale"]) - 1.0) * 5.0
+	var slippery: float = 1.0 if float(w["friction"]) < 1000.0 else 0.0
+	return head_start + foot_rate + slippery
+
+
+## Returns {"level": 1-4, "name": "EASY".."EXTREME"}. The title screen reads this from each world's "difficulty".
+func rate_difficulty(w: Dictionary) -> Dictionary:
+	var s := difficulty_score(w)
+	var level := 1
+	for cutoff in DIFFICULTY_CUTOFFS:
+		if s >= cutoff:
+			level += 1
+	return {"level": level, "name": DIFFICULTY_NAMES[level - 1]}
 
 
 # --- tiny helpers so gameplay code stays one-liners -------------------------

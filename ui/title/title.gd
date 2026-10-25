@@ -1,7 +1,7 @@
 extends Node2D
 
 const WORLD_PATH := "res://levels/world/World.tscn"
-const BOOT_BASE := Vector2(980, 215)
+const BOOT_BASE := Vector2(1040, 215)
 
 @onready var boot: Sprite2D = $BigBoot
 @onready var guy: Sprite2D = $LittleGuy
@@ -15,7 +15,13 @@ const BOOT_BASE := Vector2(980, 215)
 @onready var tagline_label: Label = %TaglineLabel
 @onready var prev_button: Button = %PrevButton
 @onready var next_button: Button = %NextButton
-
+@onready var info_button: Button = %InfoButton
+@onready var info_overlay: Control = %InfoOverlay
+@onready var close_button: Button = %CloseButton
+@onready var diff_name: Label = %DiffName
+@onready var pips: Array[ColorRect] = [
+	%Pip1, %Pip2, %Pip3, %Pip4
+]
 var _t := 0.0
 var _stick_ready := true
 
@@ -27,19 +33,23 @@ func _ready() -> void:
 	quit_button.pressed.connect(get_tree().quit)
 	prev_button.pressed.connect(_cycle.bind(-1))
 	next_button.pressed.connect(_cycle.bind(1))
+	info_button.pressed.connect(_set_info.bind(true))
+	close_button.pressed.connect(_set_info.bind(false))
 	play_button.grab_focus()
 	if OS.has_feature("web"):
 		quit_button.hide()
 	_refresh_world()
 
 
-## _input (not _unhandled_input): the focused PLAY button would otherwise eat the arrow keys
-## for focus navigation before we ever saw them.
 func _input(event: InputEvent) -> void:
+	if info_overlay.visible:
+		if event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause"):
+			_set_info(false)
+			get_viewport().set_input_as_handled()
+		return 
 	var step := 0
 	var motion := event as InputEventJoypadMotion
 	if motion:
-		# a held stick spams motion events: only react once per push, re-arm when it returns to centre
 		if motion.axis != JOY_AXIS_LEFT_X:
 			return
 		if absf(motion.axis_value) < 0.5:
@@ -58,6 +68,15 @@ func _input(event: InputEvent) -> void:
 		_cycle(step)
 
 
+func _set_info(opened: bool) -> void:
+	Audio.play("click")
+	info_overlay.visible = opened
+	if opened:
+		close_button.grab_focus()
+	else:
+		play_button.grab_focus()
+
+
 func _process(delta: float) -> void:
 	_t += delta
 	guy.frame = int(_t * 3.0) % 2
@@ -74,15 +93,41 @@ func _cycle(step: int) -> void:
 	_refresh_world()
 
 
+
 func _refresh_world() -> void:
 	var w: Dictionary = Game.world()
+
 	world_label.text = w["name"]
 	tagline_label.text = w["tagline"]
+
+	var diff: Dictionary = w["difficulty"]
+	var level: int = int(diff["level"])
+
+	var shades: Array[Color] = [
+		Pal.MINT,
+		Pal.BUTTER,
+		Pal.PEACH,
+		Pal.ROSE
+	]
+	var shade: Color = shades[level - 1]
+
+	for i in range(pips.size()):
+		pips[i].color = shade if i < level else Color(1, 1, 1, 0.16)
+
+	diff_name.text = diff["name"]
+	diff_name.add_theme_color_override("font_color", shade)
+
 	floor_rect.texture = load(w["floor"])
+
 	var footwear: Dictionary = w["footwear"]
 	boot.texture = load(footwear["sheet"])
-	var best :int= Game.best_for(Game.world_index)
-	best_label.text = "BEST  %d" % best if best > 0 else "no record here yet. go get squished."
+
+	var best := Game.best_for(Game.world_index)
+	best_label.text = (
+		"BEST  %d" % best
+		if best > 0
+		else "no record here yet. go get squished."
+	)
 
 
 func _on_play() -> void:
