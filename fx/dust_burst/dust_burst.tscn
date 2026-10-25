@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://fx/dust_burst/dust_burst.gd" id="1_dust"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fx/puff.png" id="2_puff"]
+
+[node name="DustBurst" type="CPUParticles2D"]
+z_index = 10
+emitting = false
+lifetime = 0.6
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 90.0
+initial_velocity_max = 260.0
+damping_min = 160.0
+damping_max = 260.0
+scale_amount_min = 0.6
+scale_amount_max = 1.1
+texture = ExtResource("2_puff")
+script = ExtResource("1_dust")

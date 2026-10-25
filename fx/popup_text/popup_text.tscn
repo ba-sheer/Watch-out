@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://fx/popup_text/popup_text.gd" id="1_popup"]
+[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2_theme"]
+
+[node name="PopupText" type="Label"]
+z_index = 30
+theme = ExtResource("2_theme")
+theme_override_font_sizes/font_size = 26
+text = "+10"
+script = ExtResource("1_popup")
