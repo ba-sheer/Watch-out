@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://hazards/rolling_pin/rolling_pin.gd" id="1_pin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/rolling_pin.png" id="2_pin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/stripes.png" id="3_stripes"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hit"]
+size = Vector2(380, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_near"]
+size = Vector2(440, 120)
+
+[node name="RollingPin" type="Node2D"]
+script = ExtResource("1_pin")
+
+[node name="Lane" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -192.0
+offset_right = -64.0
+offset_bottom = 240.0
+scale = Vector2(3, 3)
+mouse_filter = 2
+texture = ExtResource("3_stripes")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Pin" type="Node2D" parent="."]
+z_index = 5
+position = Vector2(0, -60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pin"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_pin")
+vframes = 4
+
+[node name="Hit" type="Area2D" parent="Pin"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pin/Hit"]
+shape = SubResource("RectangleShape2D_hit")
+
+[node name="Near" type="Area2D" parent="Pin"]
+collision_layer = 2
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pin/Near"]
+shape = SubResource("RectangleShape2D_near")

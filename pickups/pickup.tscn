@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://db2pgehee2edd"]
 
-[ext_resource type="Script" uid="uid://cn6sh3kknwcui" path="res://pickup.gd" id="1_0ketk"]
+[ext_resource type="Script" uid="uid://cn6sh3kknwcui" path="res://pickups/pickup.gd" id="1_0ketk"]
 [ext_resource type="Texture2D" uid="uid://btpv4clww3bto" path="res://assets/sprites/pickups_kitchen.png" id="2_i5kuo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
