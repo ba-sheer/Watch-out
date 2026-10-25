@@ -1,5 +1,4 @@
 extends Node2D
-## A rolling pin the size of a tree trunk. Warning column first, then it rolls down the screen.
 
 const START_Y := -60.0
 const END_Y := 790.0
@@ -39,8 +38,9 @@ func _physics_process(_delta: float) -> void:
 		return
 	for body in hit_area.get_overlapping_bodies():
 		var player := body as Player
-		if player and player.hurt():
+		if player:
 			_hit = true
+			player.hurt()
 	for body in near_area.get_overlapping_bodies():
 		var player := body as Player
 		if player:

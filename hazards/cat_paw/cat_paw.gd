@@ -1,5 +1,4 @@
 extends Node2D
-## A cat paw sweeping across a lane. The lane flashes first, then: swipe.
 
 const OFF_LEFT := -170.0
 const OFF_RIGHT := 1450.0
@@ -55,8 +54,9 @@ func _physics_process(_delta: float) -> void:
 		return
 	for body in hit_area.get_overlapping_bodies():
 		var player := body as Player
-		if player and player.hurt():
+		if player:
 			_hit = true
+			player.hurt()
 	for body in near_area.get_overlapping_bodies():
 		var player := body as Player
 		if player:

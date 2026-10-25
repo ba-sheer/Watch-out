@@ -63,8 +63,9 @@ func _impact() -> void:
 	var landed := false
 	for body in hitbox.get_overlapping_bodies():
 		var player := body as Player
-		if player and player.hurt():
+		if player:
 			landed = true
+			player.hurt()
 	if not landed:
 		for body in near_zone.get_overlapping_bodies():
 			var player := body as Player

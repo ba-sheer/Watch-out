@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bt630pfpxtk01" path="res://assets/sprites/shadow.png" id="2_mqcbl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 19.104973
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
-radius = 31.0
+radius = 46.010868
 
 [node name="Boot" type="Node2D" unique_id=850046439]
 script = ExtResource("1_4jx1y")

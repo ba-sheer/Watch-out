@@ -1,16 +1,16 @@
-[gd_scene format=3 uid="uid://42gehet2yy0v"]
+[gd_scene load_steps=8 format=3]
 
-[ext_resource type="Script" uid="uid://tkko6vyh6uv5" path="res://ui/title/title.gd" id="1_title"]
-[ext_resource type="Texture2D" uid="uid://bkcgt0v3thccv" path="res://assets/sprites/floor.png" id="2_floor"]
-[ext_resource type="Texture2D" uid="uid://bt630pfpxtk01" path="res://assets/sprites/shadow.png" id="3_shadow"]
-[ext_resource type="Texture2D" uid="uid://c84iel783en50" path="res://assets/sprites/boot.png" id="4_boot"]
-[ext_resource type="Texture2D" uid="uid://cliijeovpn00k" path="res://assets/sprites/player.png" id="5_player"]
-[ext_resource type="Theme" uid="uid://cyj1kcc483nrs" path="res://assets/themes/main_theme.tres" id="6_theme"]
+[ext_resource type="Script" path="res://ui/title/title.gd" id="1_title"]
+[ext_resource type="Texture2D" path="res://assets/sprites/floor.png" id="2_floor"]
+[ext_resource type="Texture2D" path="res://assets/sprites/shadow.png" id="3_shadow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/boot.png" id="4_boot"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player.png" id="5_player"]
+[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="6_theme"]
 
-[node name="Title" type="Node2D" unique_id=1681465692]
+[node name="Title" type="Node2D"]
 script = ExtResource("1_title")
 
-[node name="Floor" type="TextureRect" parent="." unique_id=1328843375]
+[node name="Floor" type="TextureRect" parent="."]
 modulate = Color(0.55, 0.5, 0.6, 1)
 offset_right = 428.0
 offset_bottom = 240.0
@@ -20,28 +20,25 @@ texture = ExtResource("2_floor")
 expand_mode = 1
 stretch_mode = 1
 
-[node name="Warning" type="Sprite2D" parent="." unique_id=205822156]
-texture_filter = 1
-position = Vector2(980, 523)
+[node name="Warning" type="Sprite2D" parent="."]
+position = Vector2(980, 575)
 scale = Vector2(7, 7)
 texture = ExtResource("3_shadow")
 
-[node name="LittleGuy" type="Sprite2D" parent="." unique_id=548933005]
-texture_filter = 1
-position = Vector2(980, 508.00003)
+[node name="LittleGuy" type="Sprite2D" parent="."]
+position = Vector2(980, 560)
 scale = Vector2(7, 7)
 texture = ExtResource("5_player")
 hframes = 8
 
-[node name="BigBoot" type="Sprite2D" parent="." unique_id=1836667238]
-texture_filter = 1
-position = Vector2(980.00006, 177)
+[node name="BigBoot" type="Sprite2D" parent="."]
+position = Vector2(980, 215)
 scale = Vector2(6, 6)
 texture = ExtResource("4_boot")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=100470491]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Margin" type="MarginContainer" parent="UI" unique_id=1434288344]
+[node name="Margin" type="MarginContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,38 +49,38 @@ theme_override_constants/margin_left = 80
 theme_override_constants/margin_top = 90
 theme_override_constants/margin_bottom = 60
 
-[node name="Menu" type="VBoxContainer" parent="UI/Margin" unique_id=422544389]
+[node name="Menu" type="VBoxContainer" parent="UI/Margin"]
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 14
 
-[node name="TitleLabel" type="Label" parent="UI/Margin/Menu" unique_id=855437166]
+[node name="TitleLabel" type="Label" parent="UI/Margin/Menu"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 68
 text = "I'M JUST A
 LITTLE GUY!!!!"
 
-[node name="SubLabel" type="Label" parent="UI/Margin/Menu" unique_id=1150238749]
+[node name="SubLabel" type="Label" parent="UI/Margin/Menu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 20
 text = "a very small adventure in a very large house"
 
-[node name="Gap" type="Control" parent="UI/Margin/Menu" unique_id=636193221]
+[node name="Gap" type="Control" parent="UI/Margin/Menu"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="WorldRow" type="HBoxContainer" parent="UI/Margin/Menu" unique_id=2126106112]
+[node name="WorldRow" type="HBoxContainer" parent="UI/Margin/Menu"]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="PrevButton" type="Button" parent="UI/Margin/Menu/WorldRow" unique_id=136023494]
+[node name="PrevButton" type="Button" parent="UI/Margin/Menu/WorldRow"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "<"
 
-[node name="WorldLabel" type="Label" parent="UI/Margin/Menu/WorldRow" unique_id=239431513]
+[node name="WorldLabel" type="Label" parent="UI/Margin/Menu/WorldRow"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
@@ -93,40 +90,40 @@ text = "KITCHEN"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NextButton" type="Button" parent="UI/Margin/Menu/WorldRow" unique_id=377524917]
+[node name="NextButton" type="Button" parent="UI/Margin/Menu/WorldRow"]
 unique_name_in_owner = true
 layout_mode = 2
 text = ">"
 
-[node name="TaglineLabel" type="Label" parent="UI/Margin/Menu" unique_id=769504221]
+[node name="TaglineLabel" type="Label" parent="UI/Margin/Menu"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 18
 text = "tagline"
 
-[node name="PlayButton" type="Button" parent="UI/Margin/Menu" unique_id=1606468340]
+[node name="PlayButton" type="Button" parent="UI/Margin/Menu"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "PLAY"
 
-[node name="QuitButton" type="Button" parent="UI/Margin/Menu" unique_id=1948810494]
+[node name="QuitButton" type="Button" parent="UI/Margin/Menu"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "QUIT"
 
-[node name="Gap2" type="Control" parent="UI/Margin/Menu" unique_id=677223923]
+[node name="Gap2" type="Control" parent="UI/Margin/Menu"]
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
-[node name="BestLabel" type="Label" parent="UI/Margin/Menu" unique_id=1955139060]
+[node name="BestLabel" type="Label" parent="UI/Margin/Menu"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
 theme_override_font_sizes/font_size = 22
 text = "BEST 0"
 
-[node name="HintLabel" type="Label" parent="UI/Margin/Menu" unique_id=524832000]
+[node name="HintLabel" type="Label" parent="UI/Margin/Menu"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
 theme_override_font_sizes/font_size = 16

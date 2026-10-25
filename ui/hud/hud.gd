@@ -21,6 +21,9 @@ func _ready() -> void:
 	for i in Game.MAX_LIVES:
 		var r := TextureRect.new()
 		r.texture = HEART_FULL
+		r.custom_minimum_size = Vector2(48, 48)
+		r.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		r.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		hearts.add_child(r)
 		_heart_rects.append(r)
 	banner.modulate.a = 0.0

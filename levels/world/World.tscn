@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://b3pnn8tdeh2dx" path="res://levels/world/director.gd" id="6_0nj7f"]
 [ext_resource type="Texture2D" uid="uid://bpkrtjjfmerey" path="res://assets/sprites/frame.png" id="6_hjhv5"]
 [ext_resource type="PackedScene" uid="uid://ddbqiuh6vqrkr" path="res://ui/hud/hud.tscn" id="9_whd5u"]
+[ext_resource type="PackedScene" path="res://ui/pause/pause_menu.tscn" id="10_kccjs"]
 
 [node name="World" type="Node2D" unique_id=306884032]
 scale = Vector2(1, 1.001)
@@ -35,12 +36,13 @@ scale = Vector2(3, 3)
 texture = ExtResource("4_0nj7f")
 
 [node name="Decor" type="Node2D" parent="." unique_id=1740794559]
+z_index = -8
 script = ExtResource("4_rsi0u")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1535479015]
-scale = Vector2(1, 1.001)
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=1636894360 groups=["player"]]
+z_index = 20
 texture_filter = 1
 scale = Vector2(2.9976583, 3)
 texture = ExtResource("6_hjhv5")
@@ -50,7 +52,6 @@ centered = false
 scale = Vector2(1, 1.001)
 
 [node name="Effects" type="Node2D" parent="." unique_id=1198192257 groups=["player"]]
-scale = Vector2(2.9976583, 3)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=916072673]
 position = Vector2(640, 360)
@@ -61,3 +62,5 @@ script = ExtResource("4_vldmy")
 script = ExtResource("6_0nj7f")
 
 [node name="HUD" parent="." unique_id=471226331 instance=ExtResource("9_whd5u")]
+
+[node name="PauseMenu" parent="." unique_id=1267645946 instance=ExtResource("10_kccjs")]

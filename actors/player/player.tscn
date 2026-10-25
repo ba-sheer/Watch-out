@@ -6,9 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://0r01n4ly4ijc" path="res://assets/sprites/fx/puff.png" id="4_lsqbn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ilk7j"]
-radius = 12.0
+radius = 18.027756
 
-[node name="player" type="CharacterBody2D" unique_id=1853750527]
+[node name="Player" type="CharacterBody2D" unique_id=393396066 groups=["player"]]
+collision_mask = 0
+motion_mode = 1
 script = ExtResource("1_nvxhs")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=907767709]
@@ -18,9 +20,11 @@ texture = ExtResource("2_ilk7j")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1270827478]
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_ilk7j")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=1452687221]
+modulate = Color(1, 1, 1, 0.55)
 texture_filter = 1
 position = Vector2(0, 19)
 scale = Vector2(3, 3)
@@ -34,7 +38,7 @@ texture = ExtResource("4_lsqbn")
 lifetime = 0.45
 direction = Vector2(0, -1)
 spread = 70.0
-gravity = Vector2(0, 98)
+gravity = Vector2(0, 0)
 initial_velocity_min = 25.0
 initial_velocity_max = 55.0
 scale_amount_min = 0.5

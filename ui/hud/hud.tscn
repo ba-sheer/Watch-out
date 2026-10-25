@@ -1,63 +1,128 @@
 [gd_scene format=3 uid="uid://ddbqiuh6vqrkr"]
 
-[ext_resource type="Script" uid="uid://ff7kq71728r8" path="res://ui/hud/hud.gd" id="1_xmswo"]
+[ext_resource type="Script" uid="uid://ff7kq71728r8" path="res://ui/hud/hud.gd" id="1_hud"]
+[ext_resource type="Theme" uid="uid://cyj1kcc483nrs" path="res://assets/themes/main_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" uid="uid://diq4tv8wqp0cf" path="res://assets/sprites/ui/dash_under.png" id="3_under"]
+[ext_resource type="Texture2D" uid="uid://cdqkf1fdc643" path="res://assets/sprites/ui/dash_progress.png" id="4_progress"]
+[ext_resource type="Texture2D" uid="uid://bk7gn58i6sovf" path="res://assets/sprites/ui/hurt_vignette.png" id="5_hurt"]
 
-[node name="HUD" type="CanvasLayer" unique_id=471226331]
-script = ExtResource("1_xmswo")
+[node name="HUD" type="CanvasLayer" unique_id=469996655]
+layer = 10
+script = ExtResource("1_hud")
 
-[node name="HurtFlash" type="TextureRect" parent="." unique_id=1917460362]
+[node name="HurtFlash" type="TextureRect" parent="." unique_id=744590278]
 unique_name_in_owner = true
-offset_right = 40.0
-offset_bottom = 40.0
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_hurt")
+expand_mode = 1
 
-[node name="Root" type="MarginContainer" parent="." unique_id=874865488]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Root" type="MarginContainer" parent="." unique_id=2133462625]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_theme")
+theme_override_constants/margin_left = 56
+theme_override_constants/margin_top = 56
+theme_override_constants/margin_right = 56
+theme_override_constants/margin_bottom = 40
 
-[node name="Layout" type="VBoxContainer" parent="Root" unique_id=1059445345]
+[node name="Layout" type="VBoxContainer" parent="Root" unique_id=844629308]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Hearts" type="HBoxContainer" parent="Root/Layout" unique_id=948518385]
-unique_name_in_owner = true
+[node name="TopBar" type="HBoxContainer" parent="Root/Layout" unique_id=1247355040]
 layout_mode = 2
+mouse_filter = 2
 
-[node name="Spacer" type="Control" parent="Root/Layout/Hearts" unique_id=167586862]
-layout_mode = 2
-
-[node name="Stats" type="VBoxContainer" parent="Root/Layout/Hearts" unique_id=528176619]
-layout_mode = 2
-
-[node name="ScoreLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1772493322]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="TimeLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1176978744]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ComboLabel" type="Label" parent="Root/Layout/Hearts/Stats" unique_id=1873248656]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="Spacer2" type="Control" parent="Root/Layout/Hearts/Stats" unique_id=1431656632]
-layout_mode = 2
-
-[node name="BottomBar" type="HBoxContainer" parent="Root/Layout/Hearts" unique_id=239177098]
-layout_mode = 2
-
-[node name="DashBox" type="VBoxContainer" parent="Root/Layout/Hearts/BottomBar" unique_id=835869974]
-layout_mode = 2
-
-[node name="DashLabel" type="Label" parent="Root/Layout/Hearts/BottomBar/DashBox" unique_id=643600554]
-layout_mode = 2
-
-[node name="DashBar" type="TextureProgressBar" parent="Root/Layout/Hearts/BottomBar/DashBox" unique_id=647298751]
+[node name="Hearts" type="HBoxContainer" parent="Root/Layout/TopBar" unique_id=1656692334]
 unique_name_in_owner = true
 layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
 
-[node name="Banner" type="Label" parent="." unique_id=1296027773]
+[node name="Spacer" type="Control" parent="Root/Layout/TopBar" unique_id=1968936389]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="Stats" type="VBoxContainer" parent="Root/Layout/TopBar" unique_id=1817620711]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="ScoreLabel" type="Label" parent="Root/Layout/TopBar/Stats" unique_id=532275649]
 unique_name_in_owner = true
-offset_left = 9.0
-offset_top = 27.0
-offset_right = 49.0
-offset_bottom = 50.0
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 2
+
+[node name="TimeLabel" type="Label" parent="Root/Layout/TopBar/Stats" unique_id=1402910966]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 20
+text = "0:00"
+horizontal_alignment = 2
+
+[node name="ComboLabel" type="Label" parent="Root/Layout/TopBar/Stats" unique_id=886318535]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 22
+text = "COMBO"
+horizontal_alignment = 2
+
+[node name="Spacer2" type="Control" parent="Root/Layout" unique_id=1477916041]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="BottomBar" type="HBoxContainer" parent="Root/Layout" unique_id=472820208]
+layout_mode = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="DashBox" type="VBoxContainer" parent="Root/Layout/BottomBar" unique_id=1745798287]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="DashLabel" type="Label" parent="Root/Layout/BottomBar/DashBox" unique_id=142203799]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "DASH  [SPACE]"
+horizontal_alignment = 1
+
+[node name="DashBar" type="TextureProgressBar" parent="Root/Layout/BottomBar/DashBox" unique_id=716623025]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_under = ExtResource("3_under")
+texture_progress = ExtResource("4_progress")
+
+[node name="Banner" type="Label" parent="." unique_id=1004946032]
+unique_name_in_owner = true
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 130.0
+offset_bottom = 190.0
+grow_horizontal = 2
+theme = ExtResource("2_theme")
+theme_override_colors/font_color = Color(0.859, 0.851, 0.569, 1)
+theme_override_font_sizes/font_size = 38
+text = "BANNER"
+horizontal_alignment = 1
+vertical_alignment = 1
