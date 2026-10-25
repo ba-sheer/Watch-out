@@ -29,6 +29,11 @@ A top-down dodger about being very small in a very large house.
 | **Garage** | Boot | Pipe | Henry | Bolt · Battery · Golden Gear |
 
 Every world is rated **EASY**, **MEDIUM**, **HARD** or **EXTREME** on the title screen. The rating is worked out from that world's own numbers, so it can't fall out of date when you tune things.
+
+# Pallete
+
+<img width="1200" height="440" alt="image" src="https://github.com/user-attachments/assets/e72016cd-d837-4aa3-9e8f-11b5229b4ada" />
+
 # PICS
 
 <img width="1283" height="717" alt="Screenshot 2026-10-25 193810" src="https://github.com/user-attachments/assets/a12701cd-db8d-4c77-93fb-7d8002d47983" />
