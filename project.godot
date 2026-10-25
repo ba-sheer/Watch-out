@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Watch out"
-run/main_scene="uid://l1o2vtf3j0le"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="res://ui/title/title.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]

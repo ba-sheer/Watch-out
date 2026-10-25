@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://ui/pause/pause_menu.gd" id="1_pause"]
+[ext_resource type="Theme" path="res://assets/themes/main_theme.tres" id="2_theme"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/solid_ink.png" id="3_ink"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 20
+script = ExtResource("1_pause")
+
+[node name="Dim" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+modulate = Color(1, 1, 1, 0.65)
+texture = ExtResource("3_ink")
+expand_mode = 1
+stretch_mode = 0
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_theme")
+
+[node name="Menu" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/Menu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Hint" type="Label" parent="Center/Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.851, 0.831, 0.847, 1)
+theme_override_font_sizes/font_size = 18
+text = "the giants are also taking a break"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Center/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "RESUME"
+
+[node name="QuitButton" type="Button" parent="Center/Menu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "QUIT TO TITLE"

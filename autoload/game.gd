@@ -35,13 +35,7 @@ var new_record := false
 
 var world_index := 0
 var best_scores := {}
-## Everything that makes a world a world. Collectables and decor are per-world:
-##   pickups.names / colors are ordered [common, heal, golden] (same order as the sheet frames
-##   and Pickup.Kind). "max" is how many can lie around at once.
-##   decor.count is the TOTAL clutter on the floor, max_each caps any single sprite.
-##   chaser is the big slow thing that hunts you (Roomba / mower / Henry), frame is the wall art,
-##   footwear is the giant foot that stomps you (slipper / sandal / boot): art, sound, shake, dust colour.
-##   Colours come from Pal (the Jame Gam palette).
+
 var worlds := [
 	{
 		"id": "kitchen", "name": "KITCHEN", "tagline": "clean tiles. cosy slippers.",
