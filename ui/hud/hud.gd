@@ -14,7 +14,7 @@ const HEART_EMPTY := preload("res://assets/sprites/ui/heart_empty.png")
 
 var _banner_tween: Tween
 var _heart_rects: Array[TextureRect] = []
-var _last_lives := Game.MAX_LIVES
+var _last_lives :int = Game.MAX_LIVES
 
 
 func _ready() -> void:
@@ -33,7 +33,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var secs := int(Game.run_time)
-	time_label.text = "%d:%02d" % [secs / 60, secs % 60]
+	time_label.text = "%d:%02d" % [floori(float(secs) / 60.0), secs % 60]
 	if Game.running and Game.lives == 1:
 		flash.modulate.a = maxf(flash.modulate.a, 0.3 + 0.15 * sin(Time.get_ticks_msec() / 150.0))
 	elif flash.modulate.a > 0.0 and not get_tree().paused:

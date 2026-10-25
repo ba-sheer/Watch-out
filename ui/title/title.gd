@@ -1,7 +1,6 @@
 extends Node2D
-## Title screen: a tiny guy standing under a very large foot (the footwear changes with the world). Pick a world, press play.
 
-const WORLD_PATH := "res://levels/world/world.tscn"
+const WORLD_PATH := "res://levels/world/World.tscn"
 const BOOT_BASE := Vector2(980, 215)
 
 @onready var boot: Sprite2D = $BigBoot
@@ -82,7 +81,7 @@ func _refresh_world() -> void:
 	floor_rect.texture = load(w["floor"])
 	var footwear: Dictionary = w["footwear"]
 	boot.texture = load(footwear["sheet"])
-	var best := Game.best_for(Game.world_index)
+	var best :int= Game.best_for(Game.world_index)
 	best_label.text = "BEST  %d" % best if best > 0 else "no record here yet. go get squished."
 
 

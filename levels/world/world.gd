@@ -18,12 +18,11 @@ func _ready() -> void:
 
 	if director:
 		director.player = player
+		director.hazards = $Hazards
+		director.pickups = $Pickups
 
-		if has_node("Hazards"):
-			director.hazards = $Hazards
-
-		if has_node("Pickups"):
-			director.pickups = $Pickups
+		director.setup(Game.world())
+		Game.start_run()
 
 
 func _on_popup(text: String, pos: Vector2, color: Color) -> void:

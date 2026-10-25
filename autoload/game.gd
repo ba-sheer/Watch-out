@@ -194,7 +194,7 @@ func combo_ratio() -> float:
 
 
 func add_score(base: int) -> int:
-	var gained := base * multiplier()
+	var gained :int= base * multiplier()
 	score += gained
 	score_changed.emit(score)
 	return gained

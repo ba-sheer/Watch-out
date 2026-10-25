@@ -63,14 +63,14 @@ func _on_body_entered(body: Node2D) -> void:
 		Kind.COMMON:
 			Game.crumbs_eaten += 1
 			Game.register_combo()
-			var gained := Game.add_score(10)
+			var gained :int= Game.add_score(10)
 			Game.popup("+%d" % gained, pos, _tint.lightened(0.5))
 			Audio.play("pickup", 1.0 + minf(Game.combo, 12) * 0.04)
 			Game.burst(global_position, _tint, 6)
 		Kind.GOLDEN:
 			Game.crumbs_eaten += 1
 			Game.register_combo(2)
-			var gained := Game.add_score(50)
+			var gained :int= Game.add_score(50)
 			Game.popup("%s! +%d" % [_item_name, gained], pos, _tint)
 			Audio.play("golden")
 			Game.burst(global_position, _tint, 14)
@@ -79,7 +79,7 @@ func _on_body_entered(body: Node2D) -> void:
 				Game.popup("%s! +1 HEART" % _item_name, pos, _tint.lightened(0.3))
 				Audio.play("heal")
 			else:
-				var gained := Game.add_score(25)
+				var gained :int= Game.add_score(25)
 				Game.popup("+%d" % gained, pos, _tint.lightened(0.3))
 				Audio.play("pickup")
 			Game.burst(global_position, _tint, 10)

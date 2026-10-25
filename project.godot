@@ -12,13 +12,13 @@ config_version=5
 
 config/name="Watch out"
 run/main_scene="res://ui/title/title.tscn"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Game="*uid://lx31u7brcw71"
-Audio="*uid://qi5f4itya4x3"
+Game="*res://autoload/game.gd"
+Audio="*res://autoload/audio.gd"
 Pal="*uid://cgplxfibxormr"
 
 [display]

@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ddbqiuh6vqrkr" path="res://ui/hud/hud.tscn" id="9_whd5u"]
 
 [node name="World" type="Node2D" unique_id=306884032]
+scale = Vector2(1, 1.001)
 script = ExtResource("1_6dsb1")
 
 [node name="Floor" type="TextureRect" parent="." unique_id=982963233]
@@ -37,6 +38,7 @@ texture = ExtResource("4_0nj7f")
 script = ExtResource("4_rsi0u")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1535479015]
+scale = Vector2(1, 1.001)
 
 [node name="Frame" type="Sprite2D" parent="." unique_id=1636894360 groups=["player"]]
 texture_filter = 1
@@ -45,13 +47,14 @@ texture = ExtResource("6_hjhv5")
 centered = false
 
 [node name="Hazards" type="Node2D" parent="." unique_id=235815409]
-scale = Vector2(2.9976583, 3)
+scale = Vector2(1, 1.001)
 
 [node name="Effects" type="Node2D" parent="." unique_id=1198192257 groups=["player"]]
 scale = Vector2(2.9976583, 3)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=916072673]
 position = Vector2(640, 360)
+scale = Vector2(1, 1.001)
 script = ExtResource("4_vldmy")
 
 [node name="Director" type="Node" parent="." unique_id=103082447]

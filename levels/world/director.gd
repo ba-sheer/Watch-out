@@ -1,8 +1,7 @@
 class_name Director
 extends Node
-## Decides what the giants throw at the little guy, and when.
 
-const BOOT_SCENE := preload("res://hazards/boot/boot.tscn")
+const BOOT_SCENE := preload("res://hazards/boot/Boot.tscn")
 const PAW_SCENE := preload("res://hazards/cat_paw/cat_paw.tscn")
 const PIN_SCENE := preload("res://hazards/rolling_pin/rolling_pin.tscn")
 const CHASER_SCENE := preload("res://actors/chaser/chaser.tscn")
@@ -59,7 +58,7 @@ func setup(w: Dictionary) -> void:
 func _process(delta: float) -> void:
 	if not Game.running or not is_instance_valid(player):
 		return
-	var t := Game.run_time + offset
+	var t :float= Game.run_time + offset
 
 	if not _intro_shown and Game.run_time >= 0.5:
 		_intro_shown = true

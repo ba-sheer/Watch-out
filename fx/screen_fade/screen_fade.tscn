@@ -4,7 +4,7 @@
 
 [node name="ScreenFade" type="CanvasLayer" unique_id=930949940]
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1352404364]
+[node name="Fade" type="TextureRect" parent="." unique_id=1352404364]
 modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0

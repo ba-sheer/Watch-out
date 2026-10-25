@@ -1,7 +1,6 @@
 extends Node2D
-## Results screen. Stats fade in one by one.
 
-const WORLD_PATH := "res://levels/world/world.tscn"
+const WORLD_PATH := "res://levels/world/World.tscn"
 const TITLE_PATH := "res://ui/title/title.tscn"
 
 @onready var floor_rect: TextureRect = $Floor

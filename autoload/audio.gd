@@ -28,8 +28,7 @@ func _ready() -> void:
 	_music.volume_db = MUSIC_DB
 	var wav := _music.stream as AudioStreamWAV
 	if wav:
-		# loop inside the stream: sample-exact seam, no gap from restarting a finished player
-		# (that restart gap is much more noticeable in a browser, where audio latency is higher)
+		
 		wav.loop_mode = AudioStreamWAV.LOOP_FORWARD
 		wav.loop_begin = 0
 		var bytes_per_frame := (2 if wav.format == AudioStreamWAV.FORMAT_16_BITS else 1) * (2 if wav.stereo else 1)
