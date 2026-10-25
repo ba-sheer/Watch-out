@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dk50erskyhkuy"]
+
+[ext_resource type="Script" uid="uid://dcp0615heq1r5" path="res://hazards/boot/boot.gd" id="1_4jx1y"]
+[ext_resource type="Texture2D" uid="uid://bt630pfpxtk01" path="res://assets/sprites/shadow.png" id="2_mqcbl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 19.104973
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 31.0
+
+[node name="Boot" type="Node2D" unique_id=850046439]
+script = ExtResource("1_4jx1y")
+
+[node name="Warning" type="Sprite2D" parent="." unique_id=1652871073]
+texture_filter = 1
+texture = ExtResource("2_mqcbl")
+
+[node name="Foot" type="Sprite2D" parent="." unique_id=521470881]
+visible = false
+texture_filter = 1
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=500249648]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=192013891]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="NearZone" type="Area2D" parent="." unique_id=823958785]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NearZone" unique_id=745450916]
+shape = SubResource("CircleShape2D_yf5fn")

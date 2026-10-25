@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://clvh8m8kx0nah"]
+
+[ext_resource type="Texture2D" uid="uid://bwjcafcra8x5e" path="res://assets/sprites/ui/solid_ink.png" id="1_fbn3x"]
+
+[node name="ScreenFade" type="CanvasLayer" unique_id=930949940]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1352404364]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_fbn3x")
+expand_mode = 1
